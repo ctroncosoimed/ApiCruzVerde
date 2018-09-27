@@ -1,23 +1,23 @@
 development:
   adapter: postgresql
-  host: localhost
-  username: postgres
-  password: postgres
+  host: <%= ENV['PG_PORT_5432_TCP_ADDR'] %>
+  username: <%= ENV['PG_ENV_POSTGRES_USER'] %>
+  password: <%= ENV['PG_ENV_POSTGRES_PASSWORD'] %>
   database: list_to_dec
   timeout: 5000
 
 production:
   adapter: postgresql
-  host: localhost
-  username: postgres
-  password: postgres
+  host: <%= ENV['PG_PORT_5432_TCP_ADDR'] %>
+  username: <%= ENV['PG_ENV_POSTGRES_USER'] %>
+  password: <%= ENV['PG_ENV_POSTGRES_PASSWORD'] %>
   database: list_to_dec
   timeout: 5000
 
 test:
   adapter: postgresql
-  host: localhost
-  username: postgres
-  password: postgres
+  host: <%= ENV['PG_PORT_5432_TCP_ADDR'] %>
+  username: <%= ENV['PG_ENV_POSTGRES_USER'] %>
+  password: <%= ENV['PG_ENV_POSTGRES_PASSWORD'] %>
   database: list_to_dec
   timeout: 5000

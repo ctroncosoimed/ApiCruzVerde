@@ -7,9 +7,12 @@ gem 'rails', '~> 5.2.1'
 gem 'pg'
 gem 'puma', '~> 3.11'
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'savon', '~> 2.12.0'
-gem 'rest-client'
 gem "typhoeus"
+
+group :production do
+  gem 'puma', '~> 3.11'
+  gem 'foreman'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
