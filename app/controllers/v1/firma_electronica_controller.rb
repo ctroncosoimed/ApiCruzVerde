@@ -14,10 +14,4 @@ class V1::FirmaElectronicaController < ApplicationController
     render json: @result
   end
 
-  private
-
-  def token_validate
-    return render json: {error: "Token Invalido", status: 400} unless params[:auth_token].present? and params[:auth_token] == 'Ab91572Ixtkh9n'
-  end
-
 end
