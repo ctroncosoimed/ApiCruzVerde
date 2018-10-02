@@ -11,7 +11,7 @@ gem "typhoeus"
 
 group :production do
   gem 'puma', '~> 3.11'
-  gem 'foreman'
+  gem "typhoeus"
 end
 
 group :development, :test do

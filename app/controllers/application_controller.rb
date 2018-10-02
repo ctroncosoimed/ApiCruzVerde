@@ -6,9 +6,8 @@ class ApplicationController < ActionController::API
 
   def self.save_document(params)
     if params[:accion].downcase == 'firma'
-      document = TableService.where(busy: false).last
+      document = TableService.where(busy: false, id_code: params[:TipoDoc]).last
       if document.present?
-        byebug
         update= document.update_attributes(institution: params[:Institucion],
                                            mime_type: params[:TipoDoc],
                                            description: params[:DescripcionDocumento],
@@ -24,7 +23,7 @@ class ApplicationController < ActionController::API
         response= {status: false}
       end
     elsif params[:accion].downcase == 'digitalizacion'
-      document = TableService.where(busy: false).last
+      document = TableService.where(busy: false, id_code: params[:TipoDoc]).last
       if document.present?
         update= document.update_attributes(institution: params[:Institucion],
                                            mime_type: params[:TipoDoc],
@@ -44,7 +43,7 @@ class ApplicationController < ActionController::API
   end
 
   def validate_audit
-    
+    #Validar que el tipo de auditoria sea valido
   end
 
 end
