@@ -8,6 +8,7 @@ class ApplicationController < ActionController::API
     if params[:accion].downcase == 'firma'
       document = TableService.where(busy: false).last
       if document.present?
+        byebug
         update= document.update_attributes(institution: params[:Institucion],
                                            mime_type: params[:TipoDoc],
                                            description: params[:DescripcionDocumento],
