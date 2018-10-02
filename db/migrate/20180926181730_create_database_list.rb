@@ -14,6 +14,7 @@ class CreateDatabaseList < ActiveRecord::Migration[5.2]
       t.boolean :busy #Campo para saber si el documento esta utilizado o no.
       t.json :related_document #Json con los datos del documento relacionado
       t.integer :status #Se cargarar un status en caso de que no se pueda guardar el archivo
+      t.string :mesaje_status #Se guardara el mensaje en caso de que el dec responda que no se puede guardar
       t.timestamps
     end
   end
