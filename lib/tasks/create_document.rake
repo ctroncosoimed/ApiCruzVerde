@@ -2,7 +2,7 @@ namespace :create_document do
   desc "Se crean documento en dec para ser ocupados posteriormente por un proceso"
   task :create_on_dec, [:code_file] => [:environment] do |t, args|
 
-    @range= 10 #Cuantos Documentos se van a crear
+    @range= 500 #Cuantos Documentos se van a crear
     @codigo_dec = [] #Array que contendra los codigos dec
     @usuario= 'Autentia'
     @clave= '@ut3nti4.'
