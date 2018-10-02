@@ -1,5 +1,4 @@
 class V1::LoginController < ApplicationController
-
   before_action :user_validate
 
   def token
