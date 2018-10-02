@@ -1,6 +1,5 @@
 class CreateDatabaseList < ActiveRecord::Migration[5.2]
   def change
-    
     create_table :container_list_document do |t|
       t.string :dec_code #Codigo Dec Que se utilizara
       t.string :id_code #ID del codigo a utilizar (Voucher....)
@@ -17,6 +16,5 @@ class CreateDatabaseList < ActiveRecord::Migration[5.2]
       t.integer :status #Se cargarar un status en caso de que no se pueda guardar el archivo
       t.timestamps
     end
-
   end
 end

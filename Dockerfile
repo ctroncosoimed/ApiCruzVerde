@@ -1,12 +1,22 @@
 FROM ruby:2.5
 
-RUN gem install bundler
-RUN gem install foreman
-RUN gem install rails -v '2.5.1'
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+
+RUN apt-get update && apt-get install -y nodejs postgresql-client vim --no-install-recommends && rm -rf /var/lib/apt/lists/*
 
 ENV RAILS_ENV production
-ENV PORT 8080
+ENV RAILS_SERVE_STATIC_FILES true
+ENV RAILS_LOG_TO_STDOUT true
 
-RUN bundle install
+COPY Gemfile /usr/src/app/
+COPY Gemfile.lock /usr/src/app/
 
-CMD bundle exec rake db:migrate assets:precompile
+RUN gem install typhoeus
+RUN bundle config --global frozen 1
+RUN bundle install --without development test
+
+COPY . /usr/src/app
+
+EXPOSE 3000
+CMD ["rails", "server", "-b", "0.0.0.0"]
